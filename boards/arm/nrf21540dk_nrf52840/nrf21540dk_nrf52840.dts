@@ -95,8 +95,8 @@
 			   <17 0 &gpio1 13 0>,	/* D11 */
 			   <18 0 &gpio1 14 0>,	/* D12 */
 			   <19 0 &gpio1 15 0>,	/* D13 */
-			   <20 0 &gpio0 26 0>,	/* D14 */
-			   <21 0 &gpio0 27 0>;	/* D15 */
+			   <20 0 &gpio0 0 0>,	/* D14 */
+			   <21 0 &gpio0 1 0>;	/* D15 */
 	};
 
 	arduino_adc: analog-connector {
@@ -109,6 +109,13 @@
 				 <4 &adc 6>,	/* A4 = P0.30 = AIN6 */
 				 <5 &adc 7>;	/* A5 = P0.31 = AIN7 */
 	};
+
+    nrf_radio_fem: nrf21540_fem {
+        compatible = "nordic,nrf21540_gpio";
+        tx-en-pin = <22>;
+        rx-en-pin = <19>;
+        pdn-pin = <23>;
+    };
 
 	/* These aliases are provided for compatibility with samples */
 	aliases {
