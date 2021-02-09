@@ -1,7 +1,7 @@
 # Copyright (c) 2021 Nordic Semiconductor ASA
 # SPDX-License-Identifier: Apache-2.0
 
-set(NRF_802154_SER_SOURCE_DIR ${ZEPHYR_CURRENT_MODULE_DIR}/drivers/nrf_802154_serialization)
+set(NRF_802154_SER_SOURCE_DIR ${ZEPHYR_CURRENT_MODULE_DIR}/nrf_802154_serialization)
 
 zephyr_library()
 
