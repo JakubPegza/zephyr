@@ -21,6 +21,8 @@ manifest:
   remotes:
     - name: upstream
       url-base: https://github.com/zephyrproject-rtos
+    - name: pkwiek
+      url-base: https://github.com/pkwiek
 
   #
   # Please add items below based on alphabetical order
@@ -57,8 +59,13 @@ manifest:
       revision: f1fa8241f8786198ba41155413243de36ed878a5
       path: modules/hal/infineon
     - name: hal_nordic
-      revision: pull/89/head
+      revision: create-hal-nrf-802154-repo
       path: modules/hal/nordic
+      remote: pkwiek
+    - name: hal-nrf-802154
+      revision: create-hal-nrf-802154-repo
+      path: modules/hal/nordic/nrf_802154
+      remote: pkwiek
     - name: hal_openisa
       revision: 40d049f69c50b58ea20473bee14cf93f518bf262
       path: modules/hal/openisa
