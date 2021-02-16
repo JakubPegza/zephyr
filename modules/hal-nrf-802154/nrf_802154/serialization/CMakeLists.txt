@@ -1,7 +1,7 @@
 # Copyright (c) 2021 Nordic Semiconductor ASA
 # SPDX-License-Identifier: Apache-2.0
 
-set(NRF_802154_SER_SOURCE_DIR ${ZEPHYR_CURRENT_MODULE_DIR}/nrf_802154_serialization)
+set(NRF_802154_SER_SOURCE_DIR ${ZEPHYR_CURRENT_MODULE_DIR}/serialization)
 
 zephyr_library()
 
@@ -16,6 +16,7 @@ zephyr_library_sources(
   ${CMAKE_CURRENT_SOURCE_DIR}/platform/nrf_802154_spinel_log.c
   ${CMAKE_CURRENT_SOURCE_DIR}/platform/nrf_802154_spinel_backend_ipc.c
   ${CMAKE_CURRENT_SOURCE_DIR}/platform/nrf_802154_spinel_response_notifier.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/platform/nrf_802154_serialization_crit_sect.c
 )
 
 zephyr_library_sources_ifdef(
@@ -31,5 +32,15 @@ zephyr_library_sources_ifdef(
   ${CMAKE_CURRENT_SOURCE_DIR}/platform/nrf_802154_init_net.c
 )
 
-zephyr_include_directories(${NRF_802154_SER_SOURCE_DIR}/include)
-zephyr_library_include_directories(${NRF_802154_SER_SOURCE_DIR}/src/include)
+zephyr_include_directories_ifdef(
+  CONFIG_NRF_802154_SER_HOST
+  ${NRF_802154_SER_SOURCE_DIR}/include/host
+)
+
+zephyr_include_directories(${NRF_802154_SER_SOURCE_DIR}/include/serialization)
+
+zephyr_library_include_directories(
+  ${NRF_802154_SER_SOURCE_DIR}/src/include
+  ${NRF_802154_SER_SOURCE_DIR}/platform/include
+  ${NRF_802154_SER_SOURCE_DIR}/spinel_base
+)

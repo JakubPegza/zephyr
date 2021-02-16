@@ -12,7 +12,7 @@
 #include <logging/log.h>
 #include <zephyr.h>
 
-#include "../spinel_base/spinel.h"
+#include "spinel.h"
 #include "nrf_802154_spinel_log.h"
 
 #define LOG_LEVEL LOG_LEVEL_INFO
