@@ -1,7 +1,7 @@
 # Copyright (c) 2021 Nordic Semiconductor ASA
 # SPDX-License-Identifier: Apache-2.0
 
-set(NRF_802154_SL_ROOT ${ZEPHYR_CURRENT_MODULE_DIR}/nrf_802154_sl_opensource)
+set(NRF_802154_SL_ROOT ${ZEPHYR_CURRENT_MODULE_DIR}/sl)
 
 include(${NRF_802154_SL_ROOT}/nrf_802154_sl_files.cmake)
 

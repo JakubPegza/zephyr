@@ -15,7 +15,7 @@
  * See <http://creativecommons.org/publicdomain/zero/1.0/>.
  */
 
-#include "nrf_802154_random.h"
+#include "platform/nrf_802154_random.h"
 
 #include <drivers/entropy.h>
 

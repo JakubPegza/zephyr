@@ -1,7 +1,7 @@
 # Copyright (c) 2021 Nordic Semiconductor ASA
 # SPDX-License-Identifier: Apache-2.0
 
-set(NRF_802154_DRIVER_ROOT ${ZEPHYR_CURRENT_MODULE_DIR}/nrf_radio_802154)
+set(NRF_802154_DRIVER_ROOT ${ZEPHYR_CURRENT_MODULE_DIR}/driver)
 
 include(${NRF_802154_DRIVER_ROOT}/nrf_802154_driver_sources.cmake)
 

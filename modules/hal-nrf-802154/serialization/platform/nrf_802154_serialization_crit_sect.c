@@ -37,7 +37,7 @@
  * @brief Zephyr-specific implementation of critical sections for 802.15.4 serialization services.
  */
 
-#include "nrf_802154_serialization_crit_sect.h"
+#include "platform/nrf_802154_serialization_crit_sect.h"
 
 #ifndef TEST
 #include <irq.h>

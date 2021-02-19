@@ -9,7 +9,7 @@
 #include <device.h>
 #include <logging/log.h>
 
-#include "nrf_802154_spinel_backend_callouts.h"
+#include "platform/nrf_802154_spinel_backend_callouts.h"
 #include "nrf_802154_serialization_error.h"
 #include "spinel.h"
 
