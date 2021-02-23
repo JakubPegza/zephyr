@@ -68,6 +68,10 @@ choice NRF_802154_SL_TYPE
 
 config NRF_802154_SL_OPENSOURCE
 	bool "nRF IEEE 802.15.4 Open source Service Layer"
+	help
+		Use of open-source implementation of nRF 802.15.4 Service Layer.
+		This implementation provides stubs of advanced features of nRF 802.15.4 Radio Driver.
+		Incompatible with Multi Protocol Service Layer (MPSL).
 
 endchoice
 

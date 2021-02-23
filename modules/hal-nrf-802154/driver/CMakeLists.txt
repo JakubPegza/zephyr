@@ -1,6 +1,30 @@
-# Copyright (c) 2021 Nordic Semiconductor ASA
-# SPDX-License-Identifier: Apache-2.0
-
+#
+#  Copyright (c) 2021, Nordic Semiconductor ASA
+#  All rights reserved.
+#
+#  Redistribution and use in source and binary forms, with or without
+#  modification, are permitted provided that the following conditions are met:
+#  1. Redistributions of source code must retain the above copyright
+#     notice, this list of conditions and the following disclaimer.
+#  2. Redistributions in binary form must reproduce the above copyright
+#     notice, this list of conditions and the following disclaimer in the
+#     documentation and/or other materials provided with the distribution.
+#  3. Neither the name of the copyright holder nor the
+#     names of its contributors may be used to endorse or promote products
+#     derived from this software without specific prior written permission.
+#
+#  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+#  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+#  IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+#  ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+#  LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+#  CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+#  SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+#  INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+#  CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+#  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+#  POSSIBILITY OF SUCH DAMAGE.
+#
 set(NRF_802154_DRIVER_ROOT ${ZEPHYR_CURRENT_MODULE_DIR}/driver)
 
 include(${NRF_802154_DRIVER_ROOT}/nrf_802154_driver_sources.cmake)
@@ -33,7 +57,7 @@ zephyr_library_sources(
 
 endif()
 
-zephyr_library_sources(${CMAKE_CURRENT_SOURCE_DIR}/platform/nrf_802154_random_zephyr.c)
+zephyr_library_sources(${CMAKE_CURRENT_SOURCE_DIR}/platform/random/nrf_802154_random_zephyr.c)
 
 if(     CONFIG_NRF_802154_CCA_MODE_ED)
   set(radio_cca_mode NRF_RADIO_CCA_MODE_ED)
@@ -80,7 +104,7 @@ zephyr_compile_definitions(
   NRF_802154_ACK_TIMEOUT_ENABLED=1
 )
 
-if (CONFIG_IEEE802154_NRF5 OR CONFIG_MPSL)
+if ((CONFIG_IEEE802154_NRF5 AND CONFIG_IEEE802154_NRF5_EXT_IRQ_MGMT) OR CONFIG_MPSL)
   zephyr_compile_definitions(
     NRF_802154_INTERNAL_RADIO_IRQ_HANDLING=0
   )
@@ -108,5 +132,11 @@ else()
     NRF_802154_DELAYED_TRX_ENABLED=1
     # Enable IFS
     NRF_802154_IFS_ENABLED=1
+  )
+endif()
+
+if (CONFIG_MPSL)
+  zephyr_compile_definitions(
+    NRF_802154_VERIFY_PERIPHS_ALLOC_AGAINST_MPSL=1
   )
 endif()
