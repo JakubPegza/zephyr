@@ -59,6 +59,9 @@ manifest:
     - name: hal_nordic
       revision: f3434da6446380fcdd426dbe2866af21d0d549b6
       path: modules/hal/nordic
+    - name: sdk-802154
+      revision: 4a87d20dc3f167ca3c81a5300e1dbaf965da8aeb
+      path: modules/hal/nordic/sdk-802154
     - name: hal_openisa
       revision: 40d049f69c50b58ea20473bee14cf93f518bf262
       path: modules/hal/openisa

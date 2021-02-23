@@ -1,11 +1,4 @@
-if(CONFIG_HAS_NORDIC_DRIVERS OR CONFIG_HAS_NRFX)
-  zephyr_library()
-endif()
+# Copyright (c) 2021 Nordic Semiconductor ASA
+# SPDX-License-Identifier: Apache-2.0
 
-if(CONFIG_HAS_NORDIC_DRIVERS)
-  add_subdirectory(${ZEPHYR_CURRENT_MODULE_DIR}/drivers drivers)
-endif()
-
-if(CONFIG_HAS_NRFX)
-  add_subdirectory(nrfx)
-endif()
+add_subdirectory_ifdef(CONFIG_HAS_NRFX   nrfx)
