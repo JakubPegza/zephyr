@@ -199,4 +199,6 @@ endif
 
 endmenu # NRF_802154_SER_HOST || NRF_802154_SER_RADIO
 
+osource "$(ZEPHYR_HAL_NRF_802154_MODULE_DIR)/sl/Kconfig"
+
 endmenu # HAS_NORDIC_DRIVERS

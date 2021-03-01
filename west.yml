@@ -64,7 +64,7 @@ manifest:
       remote: pkwiek
     - name: hal-nrf-802154
       revision: create-hal-nrf-802154-repo-dev
-      path: modules/hal/nordic/nrf_802154
+      path: modules/hal/nordic/hal-nrf-802154
       remote: pkwiek
     - name: hal_openisa
       revision: 40d049f69c50b58ea20473bee14cf93f518bf262
